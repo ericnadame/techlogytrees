@@ -12,66 +12,70 @@ import React from "react";
 import toast from "react-hot-toast";
 
 interface AccountModalProps {
-	close(): void;
+  close(): void;
 }
 
 export function AccountModal({ close }: AccountModalProps) {
-	const { account, balance, logout } = useAuth();
+  const { account, balance, logout } = useAuth();
 
-	function handleLogout() {
-		logout();
-		close();
-	}
+  function handleLogout() {
+    logout();
+    close();
+  }
 
-	async function handleCopy() {
-		await navigator.clipboard.writeText(account?.address || "");
-		toast.success("Copied to clipboard");
-	}
+  async function handleCopy() {
+    await navigator.clipboard.writeText(account?.address || "");
+    toast.success("Copied to clipboard");
+  }
 
-	// const totalPoints = points.reduce((acc, point) => acc + point.value, 0);
+  // const totalPoints = points.reduce((acc, point) => acc + point.value, 0);
 
-	if (!account) return null;
+  if (!account) return null;
 
-	return (
-		<Modal position="right" close={close} showClose={false} open>
-			<div className="mb-10 horizontal justify-between">
-				<div
-					onClick={close}
-					className="horizontal text-gray-500 hover:text-gray-950 cursor-pointer space-x-1"
-				>
-					<ArrowLeftOutlined className="text-xs" />
-					<span className="text-xs">Back</span>
-				</div>
-				<div className="horizontal space-x-2 text-gray-500 cursor-pointer">
-					<div onClick={handleLogout} className=" ">
-						<LogoutOutlined className="text-lg" />
-					</div>
-					<span className="text-sm">Logout</span>
-				</div>
-			</div>
-			<div className="vertical items-center space-y-4 rounded py-2">
-				<EthAvatar size="lg" address={account.address} />
-				<div className="horizontal space-x-1">
-					<p className="font-bold text-gray-700 text-base">
-						{getShortenedFormat(account.address, 6)}
-					</p>
-					<CopyOutlined
-						onClick={handleCopy}
-						className="cursor-pointer text-sm -mt-1.5 text-gray-500 hover:text-gray-950"
-					/>
-				</div>
-			</div>
-			<div className="font-bold text-sm mb-2">Tokens</div>
-			<div className="horizontal justify-between py-4 bg-gray-100 rounded px-5">
-				<div className="horizontal space-x-3">
-					<FilecoinFilled className="text-2xl" />
-					<div className="text-sm font-medium text-gray-900">Filecoin</div>
-				</div>
-				<div className="font-bold text-sm text-gray-900">
-					{formatNumber(Number(balance))} FIL
-				</div>
-			</div>
-			{/*<div className="border-b border-gray-100 pb-2.5 mb-2.5">
+  return (
+    <Modal position="right" close={close} showClose={false} open>
+      <div className="mb-10 horizontal justify-between">
+        <div
+          onClick={close}
+          className="horizontal text-gray-500 hover:text-gray-950 cursor-pointer space-x-1"
+        >
+          <ArrowLeftOutlined className="text-xs" />
+          <span className="text-xs">Back</span>
+        </div>
+        <div className="horizontal space-x-2 text-gray-500 cursor-pointer">
+          <div onClick={handleLogout} className=" ">
+            <LogoutOutlined className="text-lg" />
+          </div>
+          <span className="text-sm">Logout</span>
+        </div>
+      </div>
+      <div className="vertical items-center space-y-4 rounded py-2">
+        <EthAvatar size="lg" address={account.address} />
+        <div className="horizontal space-x-1">
+          <p className="font-bold text-gray-700 text-base">
+            {getShortenedFormat(account.address, 6)}
+          </p>
+          <CopyOutlined
+            onClick={handleCopy}
+            className="cursor-pointer text-sm -mt-1.5 text-gray-500 hover:text-gray-950"
+          />
+        </div>
+      </div>
+      <div className="font-bold text-sm mb-2">Tokens</div>
+      <div className="horizontal justify-between py-4 bg-gray-100 rounded px-5">
+        <div className="horizontal space-x-3">
+          {/* <FilecoinFilled className="text-2xl" /> */}
+          <img
+            src="https://i.imghippo.com/files/3GQ7Q1720455855.png"
+            className="w-7"
+          />
+          <div className="text-sm font-medium text-gray-900">Theta</div>
+        </div>
+        <div className="font-bold text-sm text-gray-900">
+          {formatNumber(Number(balance))} TFUEL
+        </div>
+      </div>
+      {/*<div className="border-b border-gray-100 pb-2.5 mb-2.5">
 						<div className="text-sm font-bold">Total: {totalPoints} Points</div>
 					</div>
 					<div className="space-y-1">
@@ -91,6 +95,6 @@ export function AccountModal({ close }: AccountModalProps) {
 							</div>
 						))}
 					</div>*/}
-		</Modal>
-	);
+    </Modal>
+  );
 }
