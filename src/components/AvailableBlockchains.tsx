@@ -7,11 +7,12 @@ import React, { ReactNode } from "react";
 import { filecoinCalibration, hardhat } from "viem/chains";
 import { useChainId, useSwitchChain } from "wagmi";
 import { ThetaFilled } from "./icons/ThetaFilled";
+import { thetaTestnet } from "@/lib/constants";
 
 const NetworkIcons: Record<string, ReactNode> = {
-  [`${filecoinCalibration.id}`]: <ThetaFilled className="text-xl" />,
+  [`${thetaTestnet.id}`]: <ThetaFilled className="text-xl" />,
   //   [`${filecoinCalibration.id}`]: <FilecoinFilled className="text-xl" />,
-  [`${hardhat.id}`]: <HardHatFilled className="text-xl" />,
+  //   [`${hardhat.id}`]: <HardHatFilled className="text-xl" />,
 };
 
 export function AvailableBlockchains() {

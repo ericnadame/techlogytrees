@@ -1,6 +1,6 @@
 "use client";
 
-import { chainOptions } from "@/lib/constants";
+import { chainOptions, thetaTestnet } from "@/lib/constants";
 import AuthProvider from "@/providers/AuthProvider";
 import { ContractEventsProvider } from "@/providers/ContractEventsProvider";
 import { PrivyProvider } from "@privy-io/react-auth";
@@ -17,11 +17,13 @@ type ProviderType = {
 const queryClient = new QueryClient();
 
 export const config = createConfig({
-  chains: [filecoinCalibration, hardhat],
+  // chains: [filecoinCalibration, hardhat, thetaTestnet],
+  chains: [thetaTestnet],
 
   transports: {
     [filecoinCalibration.id]: http(),
     [hardhat.id]: http(),
+    [thetaTestnet.id]: http(),
   },
 });
 
@@ -35,7 +37,7 @@ const Providers = ({ children }: ProviderType) => {
           createOnLogin: "users-without-wallets",
         },
         supportedChains: chainOptions,
-        defaultChain: process.env.IS_LOCAL ? hardhat : filecoinCalibration,
+        defaultChain: thetaTestnet,
       }}
     >
       <QueryClientProvider client={queryClient}>
