@@ -16,8 +16,8 @@ The Decentralized Technology Tree project aims to create a platform that enables
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/ValleyDAO/hackfs-2024.git
-cd hackfs-2024
+git clone https://github.com/ericnadem/technologytree.git
+cd technologytree
 yarn install
 ```
 
