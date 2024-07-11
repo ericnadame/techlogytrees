@@ -17,7 +17,6 @@ type ProviderType = {
 const queryClient = new QueryClient();
 
 export const config = createConfig({
-  // chains: [filecoinCalibration, hardhat, thetaTestnet],
   chains: [thetaTestnet],
 
   transports: {
