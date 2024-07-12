@@ -26,15 +26,19 @@ const nodeAdded = prepareEvent({
 	signature:
 		"event NodeAdded(uint256 indexed nodeId, string title,  string nodeType)",
 });
+
 const rfpEvent = prepareEvent({
 	signature: "event RfpAdded(uint256 indexed nodeIndex, string _ipfsHash)",
 });
+
 const TechTreeAdded = prepareEvent({
 	signature: "event TechTreeAdded(uint256 indexed techTreeId, string title)",
 });
+
 const TechTreeUpdated = prepareEvent({
 	signature: "event TechTreeUpdated(uint256 indexed techTreeId)",
 });
+
 const NodeFinished = prepareEvent({
 	signature: "event NodeFinished(uint256 indexed nodeId)",
 });
