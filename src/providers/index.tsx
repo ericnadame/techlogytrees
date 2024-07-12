@@ -31,7 +31,6 @@ const Providers = ({ children }: ProviderType) => {
     <PrivyProvider
       appId={"clye7tasb08n3rnn9rqgng6ca"}
       config={{
-        // Create embedded wallets for users who don't have a wallet
         embeddedWallets: {
           createOnLogin: "users-without-wallets",
         },

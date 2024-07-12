@@ -4,22 +4,22 @@ import React, { ReactNode, createContext, useContext } from "react";
 import { decodeEventLog } from "viem";
 
 interface TxEvent {
-	address: string;
-	blockHash: string;
-	blockNumber: bigint;
-	eventName: string;
-	transactionHash: string;
-	transactionIndex: number;
-	data: `0x${string}`;
-	args: Record<string, any>;
+  address: string;
+  blockHash: string;
+  blockNumber: bigint;
+  eventName: string;
+  transactionHash: string;
+  transactionIndex: number;
+  data: `0x${string}`;
+  args: Record<string, any>;
 }
 
 type TxEventsContextProps = {
-	events: TxEvent[];
+  events: TxEvent[];
 };
 
 export const TxEventsContext = createContext<TxEventsContextProps>({
-	events: [],
+  events: [],
 });
 /*
 const nodeAdded = prepareEvent({
@@ -41,23 +41,21 @@ const NodeFinished = prepareEvent({
 const TreasuryAdded = prepareEvent({
 	signature: "event TreasuryAdded(uint256 indexed nodeIndex, uint256 amount)",
 });
-const ContributionAdded = prepareEvent({
-	signature:
-		"event ContributionAdded(address indexed user, uint256 nodeIndex, string ipfsHash)",
-});*/
+
+*/
 
 export const useTxEvents = (): TxEventsContextProps => {
-	const context = useContext(TxEventsContext);
-	if (!context) {
-		throw new Error("useAuth must be used within a AuthProvider");
-	}
-	return context;
+  const context = useContext(TxEventsContext);
+  if (!context) {
+    throw new Error("useAuth must be used within a AuthProvider");
+  }
+  return context;
 };
 
 export function ContractEventsProvider({ children }: { children: ReactNode }) {
-	return (
-		<TxEventsContext.Provider value={{ events: [] as TxEvent[] }}>
-			{children}
-		</TxEventsContext.Provider>
-	);
+  return (
+    <TxEventsContext.Provider value={{ events: [] as TxEvent[] }}>
+      {children}
+    </TxEventsContext.Provider>
+  );
 }
