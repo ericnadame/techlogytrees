@@ -42,9 +42,7 @@ const TechTreeUpdated = prepareEvent({
 const NodeFinished = prepareEvent({
 	signature: "event NodeFinished(uint256 indexed nodeId)",
 });
-const TreasuryAdded = prepareEvent({
-	signature: "event TreasuryAdded(uint256 indexed nodeIndex, uint256 amount)",
-});
+
 
 */
 
