@@ -41,7 +41,7 @@ const TechTreeUpdated = prepareEvent({
 
 const NodeFinished = prepareEvent({
 	signature: "event NodeFinished(uint256 indexed nodeId)",
-});
+
 
 
 */
