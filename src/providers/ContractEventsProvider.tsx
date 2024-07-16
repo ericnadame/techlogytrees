@@ -35,9 +35,7 @@ const TechTreeAdded = prepareEvent({
 	signature: "event TechTreeAdded(uint256 indexed techTreeId, string title)",
 });
 
-const TechTreeUpdated = prepareEvent({
-	signature: "event TechTreeUpdated(uint256 indexed techTreeId)",
-});
+
 
 */
 
